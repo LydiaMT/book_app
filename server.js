@@ -20,5 +20,10 @@ app.get('/hello', (request, response) => {
   response.render('pages/index.ejs');
 });
 
+app.get('/searches', (request, response) => {
+  // const helloWorld = 'Hello World!';
+  response.render('pages/searches/new.ejs');
+});
+
 // ============== Initialization ========================
 app.listen( PORT, () => console.log(`up on http://localhost:${PORT}`));
