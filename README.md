@@ -1,7 +1,7 @@
 # Book App
 
 **Author**: Lydia Minehan-Tubic
-**Version**: 1.0.0
+**Version**: 1.0.1
 
 ## Overview
 
@@ -70,6 +70,7 @@ book_app (repository)
 ## Change Log
 
 3-1-2021 2:30pm - Start of Day 1
+3-1-2021 3:23pm - Server set up and CSS sheet linked
 
 ## Time Estimate
 
