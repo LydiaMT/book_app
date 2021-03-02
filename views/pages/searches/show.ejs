@@ -3,22 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./styles/reset.css">
-  <link rel="stylesheet" href="./styles/base.css">
-  <link rel="stylesheet" href="./styles/layout.css">
-  <link rel="stylesheet" href="./styles/modules.css">
+  <link rel="stylesheet" href="/styles/reset.css">
+  <link rel="stylesheet" href="/styles/base.css">
+  <link rel="stylesheet" href="/styles/layout.css">
+  <link rel="stylesheet" href="/styles/modules.css">
   <title>Book app</title>
 </head>
 <body>
-<% console.log("this is a front end console log", bookArray) %>
-
-<% for (let i = 0; i < bookArray.length; i++) { %>
-  <ul>
-    <li> <img src="<%= bookArray[i].image %>" /> </li>
-    <li><%= bookArray[i].title %></li>
-    <li><%= bookArray[i].author %></li>
-    <li><%= bookArray[i].description %></li>
-  </ul>
-<% } %>
+  <header>
+    <h1>Best Books!</h1>
+  </header>
+  <main>
+    <div class="book-results">
+      <h2>Search Results</h2>
+      <% for (let i = 0; i < bookArray.length; i++) { %>
+        <ul>
+          <li> <img src="<%= bookArray[i].image %>" /> </li>
+          <li class="book-title"><%= bookArray[i].title %></li>
+          <li class="book-author"><%= bookArray[i].author %></li>
+          <li class="book-description"><%= bookArray[i].description %></li>
+        </ul>
+      <% } %>
+    </div>
+  </main>
 </body>
 </html>

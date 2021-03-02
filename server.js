@@ -17,7 +17,7 @@ app.set('view engine', 'ejs');
 
 ////////////Pathways//////////////////////
 //-----test------
-app.get('/hello', (request, response) => {
+app.get('/index.ejs', (request, response) => {
   response.render('pages/index.ejs');
 });
 
@@ -48,4 +48,4 @@ function Books(bookData){
 }
 
 // ============== Initialization ========================
-app.listen( PORT, () => console.log(`up on http://localhost:${PORT}`));
+app.listen( PORT, () => console.log(`up on http://localhost:${PORT}/index.ejs`));
