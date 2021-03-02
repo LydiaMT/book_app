@@ -3,21 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./styles/reset.css">
-  <link rel="stylesheet" href="./styles/base.css">
-  <link rel="stylesheet" href="./styles/layout.css">
-  <link rel="stylesheet" href="./styles/modules.css">
+  <link rel="stylesheet" href="/styles/reset.css">
+  <link rel="stylesheet" href="/styles/base.css">
+  <link rel="stylesheet" href="/styles/layout.css">
+  <link rel="stylesheet" href="/styles/modules.css">
   <title>Book App</title>
 </head>
 <body>
-  <form action="/searches/new" method="POST">
-    <fieldset>
-      <legend>Book Search</legend>
-      <input name="search_input" type="text">
-      Title<input type="radio" name="search" value="title">
-      Author<input type="radio" name="search" value="author">
-      <input type="submit">
-    </fieldset>
-  </form>
+  <header>
+    <h1>Best Books!</h1>
+  </header>
+  <main>
+    <div class="form-div">
+      <form action="/searches/new" method="POST">
+        <fieldset>
+          <label><h2>Search by Title or Author</h2></label>
+          <input class="user-input" name="search_input" type="text" placeholder="Enter a title or author">
+          <div class="radio">Title<input type="radio" name="search" value="title"></div>
+          <div class="radio">Author<input type="radio" name="search" value="author"></div>
+          <input class="button" type="submit">
+        </fieldset>
+      </form>
+    </div>
+  </main>
 </body>
 </html>
