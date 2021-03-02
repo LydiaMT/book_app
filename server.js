@@ -26,7 +26,7 @@ app.get('/searches/new', (request, response) => {
   response.render('pages/searches/new.ejs');
 });
 
-app.post('/searches/new', (request, response) => {
+app.post('/searches', (request, response) => {
   const url = `https://www.googleapis.com/books/v1/volumes?q=in${request.body.search}:${request.body.search_input}`;
   superagent.get(url)
     .then(bookThatComesBack => {

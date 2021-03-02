@@ -46,17 +46,30 @@ Technologies used: HTML, CSS, JavaScript, pg, express, superagent, postman, SQL,
 
 ```SQL
 book_app (repository)
+├──data
+│  ├── books.sql
+│  └── seed.sql
 ├──public
+│  ├── js
+│  │   └── app.js
 │  └── styles
 │      ├── base.css
 │      ├── layout.css
 │      ├── modules.css
 │      └── reset.css
 ├──views
+│  ├── layout
+│  │   ├── footer.ejs
+│  │   ├── head.ejs
+│  │   └── header.ejs
 │  └── pages
 │      ├── error.ejs
 │      ├── index.ejs
+│      ├── books
+│      │   ├── detail.ejs
+│      │   └── show.ejs
 │      └── searches
+│          ├── new.ejs
 │          └── show.ejs
 ├── .env
 ├── .eslintrc.json
@@ -74,12 +87,21 @@ book_app (repository)
 3-1-2021 3:38pm - created new.ejs and added search form
 3-1-2021 6:06pm - got book object to render to page with EJS
 3-1-2021 10:22pm - Made some edits with CSS
+3-2-2021 2:30pm - Start of Day 2
+
+
 
 ## Time Estimate
 
 * Number and name of feature: Day 1 - 6 Features
 * Estimate of time needed to complete: 6
 * Start time: 2:45pm
+* Finish time: 10:30
+* Actual time needed to complete: 5
+
+* Number and name of feature: Day 2 - 6 Features
+* Estimate of time needed to complete: 8
+* Start time: 2:30pm
 * Finish time: TBD
 * Actual time needed to complete: TBD
 

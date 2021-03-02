@@ -1,0 +1,2 @@
+INSERT INTO books (author, title, isbn, image_url, description) VALUES ('first author', 'first title', 'ISBN_01 1234567891011', 'https://placeholder.com/50', 'this is a really great book');
+INSERT INTO books (author, title, isbn, image_url, description) VALUES ('second author', 'second title', 'ISBN_02 1234567891011', 'https://placeholder.com/50', 'this is a really bad book');
