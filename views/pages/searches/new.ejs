@@ -10,11 +10,12 @@
   <title>Book App</title>
 </head>
 <body>
-  <form action="/hello">
+  <form action="/searches/new" method="POST">
     <fieldset>
-      <legend>Books</legend>
-      Search by Title<input name="title" type="text">
-      Search by Author<input name="author" type="text">
+      <legend>Book Search</legend>
+      <input name="search_input" type="text">
+      Title<input type="radio" name="search" value="title">
+      Author<input type="radio" name="search" value="author">
       <input type="submit">
     </fieldset>
   </form>

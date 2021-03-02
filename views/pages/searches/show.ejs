@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles/reset.css">
+  <link rel="stylesheet" href="./styles/base.css">
+  <link rel="stylesheet" href="./styles/layout.css">
+  <link rel="stylesheet" href="./styles/modules.css">
+  <title>Book app</title>
+</head>
+<body>
+<% console.log("this is a front end console log", bookArray) %>
+
+<% for (let i = 0; i < bookArray.length; i++) { %>
+  <ul>
+    <li> <img src="<%= bookArray[i].image %>" /> </li>
+    <li><%= bookArray[i].title %></li>
+    <li><%= bookArray[i].author %></li>
+    <li><%= bookArray[i].description %></li>
+  </ul>
+<% } %>
+</body>
+</html>

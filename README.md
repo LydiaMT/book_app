@@ -72,6 +72,7 @@ book_app (repository)
 3-1-2021 2:30pm - Start of Day 1
 3-1-2021 3:23pm - Server set up and CSS sheet linked
 3-1-2021 3:38pm - created new.ejs and added search form
+3-1-2021 6:06pm - got book object to render to page with EJS
 
 ## Time Estimate
 
