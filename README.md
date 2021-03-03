@@ -92,7 +92,7 @@ book_app (repository)
 3-2-2021 4:24pm - Added Saved Books page
 3-2-2021 5:30pm - Added single book
 3-2-2021 8:15pm - Show single book after saving to database
-
+3-2-2021 9:45pm - Show single book after saving to database
 
 ## Time Estimate
 
@@ -105,7 +105,7 @@ book_app (repository)
 * Number and name of feature: Day 2 - 6 Features
 * Estimate of time needed to complete: 8
 * Start time: 2:30pm
-* Finish time: TBD
-* Actual time needed to complete: TBD
+* Finish time: 9:45
+* Actual time needed to complete: 7
 
 ## Credits and Collaborations

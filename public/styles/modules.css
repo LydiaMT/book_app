@@ -1,0 +1,70 @@
+div.form-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+fieldset {
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-input {
+  height: 50px;
+  width: 295px;
+  border: thin solid black;
+  margin-bottom: 10px;
+}
+
+div.radio {
+  height: 50px;
+  width: 300px;
+  background-color: rgb(198, 198, 198);
+  margin-bottom: 10px;
+}
+
+.button {
+  height: 50px;
+  width: 300px;
+  border: thin solid black;
+  color: white;
+  background-color: black;
+  margin-bottom: 10px;
+}
+
+div.book-results {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+
+img {
+  margin: 5px 0 5px 0;
+  align-items: center;
+  justify-content: center;
+}
+li.book-title {
+  color: white;
+  font-size: 20px;
+  margin: 5px 0 5px 0;
+  align-items: center;
+  justify-content: center;
+}
+
+li.book-author {
+  font-size: 20px;
+  margin: 5px 0 5px 0;
+  align-items: center;
+  justify-content: center;
+}
+
+li.book-description {
+  font-style: italic;
+  margin: 5px 0 5px 0;
+  align-items: center;
+  justify-content: center;
+}
