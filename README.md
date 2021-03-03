@@ -88,7 +88,8 @@ book_app (repository)
 3-1-2021 6:06pm - got book object to render to page with EJS
 3-1-2021 10:22pm - Made some edits with CSS
 3-2-2021 2:30pm - Start of Day 2
-
+3-2-2021 3:00pm - Set up database and connected to Heroku
+3-2-2021 4:24pm - Added Saved Books page
 
 
 ## Time Estimate
