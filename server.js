@@ -13,14 +13,14 @@ const DATABASE_URL = process.env.DATABASE_URL;
 const client = new pg.Client(DATABASE_URL);
 client.on('error', error => console.log(error));
 
-app.use(express.urlencoded({extended:true})); //tells express to peel off form data and put it into request.body
+app.use(express.urlencoded({extended:true}));
 app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
 
 // ============== Routes ================================
 
 ////////////Pathways//////////////////////
-//-----homepage------
+//-----catalog------
 app.get('/', (request, response) => {
   const sqlString = 'SELECT * FROM books';
   const sqlArray = [];
@@ -48,7 +48,22 @@ app.get('/books/:id' , (request, response) => {
     });
 });
 
-//-----books------
+app.post('/books', (request, response) =>{
+  const sqlString = 'INSERT INTO books (author, title, isbn, image_url, description) VALUES($1, $2, $3, $4, $5)';
+  const sqlArray = [request.body.author, request.body.title, request.body.isbn, request.body.image, request.body.description];
+  client.query(sqlString, sqlArray)
+    .then(() => {
+      // const singleBook = result.rows[0];
+      const ejsObject = { singleBook: request.body };
+      response.render('pages/books/details.ejs', ejsObject);
+    })
+    .catch(errorThatComesBack => {
+      console.log(errorThatComesBack);
+      response.status(500).send('Sorry something went wrong');
+    });
+});
+
+//-----searches------
 app.get('/searches/new', (request, response) => {
   response.render('pages/searches/new.ejs');
 });
