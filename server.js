@@ -4,10 +4,14 @@
 const express = require('express');
 require('dotenv').config();
 const superagent = require('superagent');
+const pg = require('pg');
 
 // ============== App ===================================
 const app = express();
 const PORT = process.env.PORT || 3000;
+const DATABASE_URL = process.env.DATABASE_URL;
+const client = new pg.Client(DATABASE_URL);
+client.on('error', error => console.log(error));
 
 app.use(express.urlencoded({extended:true})); //tells express to peel off form data and put it into request.body
 app.use(express.static(__dirname + '/public'));
@@ -16,9 +20,16 @@ app.set('view engine', 'ejs');
 // ============== Routes ================================
 
 ////////////Pathways//////////////////////
-//-----test------
-app.get('/index.ejs', (request, response) => {
-  response.render('pages/index.ejs');
+//-----homepage------
+app.get('/', (request, response) => {
+  const sqlString = 'SELECT * FROM books';
+  const sqlArray = [];
+  client.query(sqlString, sqlArray)
+    .then(result => {
+      const newBook = result.rows;
+      const ejsObject = { newBook };
+      response.render('pages/index.ejs', ejsObject);
+    });
 });
 
 //-----books------
@@ -48,4 +59,7 @@ function Books(bookData){
 }
 
 // ============== Initialization ========================
-app.listen( PORT, () => console.log(`up on http://localhost:${PORT}/index.ejs`));
+client.connect()
+  .then(() => {
+    app.listen(PORT, function(){console.log(`up on http://localhost:${PORT}`);});
+  });

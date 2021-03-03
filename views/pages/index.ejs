@@ -10,7 +10,21 @@
   <title>Book app</title>
 </head>
 <body>
-  <h1>   Hello World!  </h1>
-  <p> <a href ="searches/new">Go to Book Search</a></p>
+  <header>
+    <h1>Best Books!</h1>
+  </header>
+  <main>
+    <div class="books-saved">
+      <h2> <%= newBook.length %> Saved Books</h2>
+      <% for (let i = 0; i < newBook.length; i++) { %>
+        <ul>
+          <li> <img src="<%= newBook[i].image_url %>" /> </li>
+          <li><%= newBook[i].title %></li>
+          <li><%= newBook[i].author %></li>
+        </ul>
+        <button>View Details</button>
+      <% } %>
+    </div>
+  </main>
 </body>
 </html>
