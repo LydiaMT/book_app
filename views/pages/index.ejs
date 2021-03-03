@@ -22,7 +22,7 @@
           <li><%= newBook[i].title %></li>
           <li><%= newBook[i].author %></li>
         </ul>
-        <button>View Details</button>
+        <a href="/books/<%= newBook[i].id %>"><button>View Details</button></a>
       <% } %>
     </div>
   </main>
