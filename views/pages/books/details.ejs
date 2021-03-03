@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles/reset.css">
+  <link rel="stylesheet" href="/styles/base.css">
+  <link rel="stylesheet" href="/styles/layout.css">
+  <link rel="stylesheet" href="/styles/modules.css">
+  <title>Book app</title>
+</head>
+<body>
+  <header>
+    <h1>Best Books!</h1>
+  </header>
+  <main>
+    <div>
+      <a href="/">Return to menu</a>
+    </div>
+    <section class="book-details">
+      <ul>
+        <li><img src="<%= singleBook.image_url %>" /></li>
+        <li><%= singleBook.title %></li>
+        <li><%= singleBook.author %></li>
+        <li><%= singleBook.description %></li>
+        <li><%= singleBook.isbn %></li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

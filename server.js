@@ -32,6 +32,22 @@ app.get('/', (request, response) => {
     });
 });
 
+app.get('/books/:id' , (request, response) => {
+  const bookId = request.params.id;
+  const sqlString = 'SELECT * FROM books WHERE id=$1';
+  const sqlArray = [bookId];
+  client.query(sqlString, sqlArray)
+    .then(result => {
+      const singleBook = result.rows[0];
+      const ejsObject = { singleBook };
+      response.render('pages/books/details.ejs', ejsObject);
+    })
+    .catch(errorThatComesBack => {
+      console.log(errorThatComesBack);
+      response.status(500).send('Sorry something went wrong');
+    });
+});
+
 //-----books------
 app.get('/searches/new', (request, response) => {
   response.render('pages/searches/new.ejs');
@@ -59,7 +75,6 @@ function Books(bookData){
 }
 
 // ============== Initialization ========================
-client.connect()
-  .then(() => {
-    app.listen(PORT, function(){console.log(`up on http://localhost:${PORT}`);});
-  });
+client.connect().then(() => {
+  app.listen(PORT, () => console.log(`app is up on port http://localhost:${PORT}`));
+});
