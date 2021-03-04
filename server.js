@@ -131,6 +131,7 @@ function Books(bookData){
   this.title = bookData.volumeInfo.title;
   this.author = bookData.volumeInfo.authors;
   this.description = bookData.volumeInfo.description;
+  this.isbn = bookData.volumeInfo.industryIdentifiers[0].identifier;
 }
 
 // ============== Initialization ========================
