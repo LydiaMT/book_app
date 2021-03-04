@@ -1,7 +1,7 @@
 # Book App
 
 **Author**: Lydia Minehan-Tubic
-**Version**: 1.0.1
+**Version**: 2.2.1
 
 ## Overview
 
@@ -43,6 +43,10 @@ For this application, I will implement a basic full-stack application for a book
 ## Architecture
 
 Technologies used: HTML, CSS, JavaScript, pg, express, superagent, postman, SQL, ejs, json, git, node, Heroku
+* [Heroku](https://book-app-lmt.herokuapp.com/)
+* [Trello Board](https://trello.com/b/phIL5fD9/book-app)
+* [Repo](https://github.com/LydiaMT/book_app)
+
 
 ```SQL
 book_app (repository)
@@ -93,8 +97,13 @@ book_app (repository)
 3-2-2021 5:30pm - Added single book
 3-2-2021 8:15pm - Show single book after saving to database
 3-2-2021 9:45pm - Show single book after saving to database
+3-3-2021 2:30pm - Start of Day 3
+3-3-2021 4:30pm - added updated and delete capabilities
+
 
 ## Time Estimate
+
+### Day 1
 
 * Number and name of feature: Day 1 - 6 Features
 * Estimate of time needed to complete: 6
@@ -102,10 +111,22 @@ book_app (repository)
 * Finish time: 10:30
 * Actual time needed to complete: 5
 
+### Day 2
+
 * Number and name of feature: Day 2 - 6 Features
 * Estimate of time needed to complete: 8
 * Start time: 2:30pm
 * Finish time: 9:45
 * Actual time needed to complete: 7
 
+### Day 3
+
+* Number and name of feature: Day 2 - 6 Features
+* Estimate of time needed to complete: 4
+* Start time: 2:30pm
+* Finish time: TBD
+* Actual time needed to complete: TBD
+
 ## Credits and Collaborations
+
+* [Lydia Minehan-Tubic](https://github.com/LydiaMT)
