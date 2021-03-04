@@ -29,6 +29,15 @@
         <li><%= singleBook.description %></li>
         <li><%= singleBook.isbn %></li>
       </ul>
+      
+      <a href="/books/<%= singleBook.id %>/edit">
+        <button>update details</button>
+      </a>
+      
+      <form action="/books/<%= singleBook.id %>?_method=DELETE" method="post">
+        <button type="submit">delete book</button>
+      </form>
+
     </section>
   </main>
 </body>

@@ -5,6 +5,8 @@ const express = require('express');
 require('dotenv').config();
 const superagent = require('superagent');
 const pg = require('pg');
+const methodOverride = require('method-override');
+
 
 // ============== App ===================================
 const app = express();
@@ -16,6 +18,7 @@ client.on('error', error => console.log(error));
 app.use(express.urlencoded({extended:true}));
 app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
+app.use(methodOverride('_method'));
 
 // ============== Routes ================================
 
@@ -55,8 +58,49 @@ app.post('/books', (request, response) =>{
     .then(() => {
       // const singleBook = result.rows[0];
       const ejsObject = { singleBook: request.body };
-      response.render('pages/books/details.ejs', ejsObject);
+      response.render('pages/books/details.ejs', ejsObject); //redirect to book/:id ?? 
     })
+    .catch(errorThatComesBack => {
+      console.log(errorThatComesBack);
+      response.status(500).send('Sorry something went wrong');
+    });
+});
+
+//------editing catalog-----
+app.get('/books/:id/edit', (request, response) =>{
+  const bookId = request.params.id;
+  const sqlString = 'SELECT * FROM books WHERE id=$1';
+  const sqlArray = [bookId];
+  client.query(sqlString, sqlArray)
+    .then(result => {
+      const singleBook = result.rows[0];
+      const ejsObject = { singleBook };
+      response.render('pages/books/edit.ejs', ejsObject);
+    })
+    .catch(errorThatComesBack => {
+      console.log(errorThatComesBack);
+      response.status(500).send('Sorry something went wrong');
+    });
+});
+
+app.put('/books/:id', (request, response) => {
+  const sqlString = 'UPDATE books SET author=$2, title=$3, isbn=$4, image_url=$5, description=$6 WHERE id=$1';
+  const sqlArray = [request.params.id, request.body.author, request.body.title, request.body.isbn, request.body.image_url, request.body.description];
+  client.query(sqlString, sqlArray)
+    .then(() => {
+      response.redirect(`/books/${request.params.id}`);
+    })
+    .catch(errorThatComesBack => {
+      console.log(errorThatComesBack);
+      response.status(500).send('Sorry something went wrong');
+    });
+});
+
+app.delete('/books/:id', (request, response) => {
+  const sqlString = `DELETE FROM books WHERE id=$1;`;
+  const sqlArray = [request.params.id];
+  client.query(sqlString, sqlArray)
+    .then(response.redirect('/'))
     .catch(errorThatComesBack => {
       console.log(errorThatComesBack);
       response.status(500).send('Sorry something went wrong');
