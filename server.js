@@ -52,13 +52,14 @@ app.get('/books/:id' , (request, response) => {
 });
 
 app.post('/books', (request, response) =>{
-  const sqlString = 'INSERT INTO books (author, title, isbn, image_url, description) VALUES($1, $2, $3, $4, $5)';
-  const sqlArray = [request.body.author, request.body.title, request.body.isbn, request.body.image, request.body.description];
+  const sqlString = 'INSERT INTO books (author, title, isbn, image_url, description) VALUES($1, $2, $3, $4, $5) RETURNING id'; 
+  //pg does not automatically return the ID, so you need to add 'RETURNING id' to your sql string
+  const sqlArray = [request.body.author, request.body.title, request.body.isbn, request.body.image_url, request.body.description];
   client.query(sqlString, sqlArray)
-    .then(() => {
-      // const singleBook = result.rows[0];
-      const ejsObject = { singleBook: request.body };
-      response.render('pages/books/details.ejs', ejsObject); //redirect to book/:id ?? 
+    .then((result) => {
+      const singleBook = result.rows[0];
+      console.log(result);
+      response.redirect(`/books/${singleBook.id}`);
     })
     .catch(errorThatComesBack => {
       console.log(errorThatComesBack);
@@ -127,11 +128,21 @@ app.post('/searches', (request, response) => {
 
 ////////////Objects//////////////////////
 function Books(bookData){
-  this.image = bookData.volumeInfo.imageLinks ? bookData.volumeInfo.imageLinks.smallThumbnail : "https://i.imgur.com/J5LVHEL.jpg";
-  this.title = bookData.volumeInfo.title;
-  this.author = bookData.volumeInfo.authors;
-  this.description = bookData.volumeInfo.description;
-  this.isbn = bookData.volumeInfo.industryIdentifiers[0].identifier;
+  this.image = '';
+  this.title = '';
+  this.author = '';
+  this.description = '';
+  this.isbn = '';
+  if (bookData && bookData.volumeInfo){
+    this.image = bookData.volumeInfo.imageLinks ? bookData.volumeInfo.imageLinks.thumbnail : "https://i.imgur.com/J5LVHEL.jpg";
+    this.title = bookData.volumeInfo.title;
+    this.author = bookData.volumeInfo.authors;
+    this.description = bookData.volumeInfo.description;
+    if(Array.isArray(bookData.volumeInfo.industryIdentifiers)){
+      this.isbn = bookData.volumeInfo.industryIdentifiers[0].identifier;
+      //some bookData instances did not have isbn which was throwing an error
+    }
+  }
 }
 
 // ============== Initialization ========================

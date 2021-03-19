@@ -86,20 +86,20 @@ book_app (repository)
 
 ## Change Log
 
-3-1-2021 2:30pm - Start of Day 1
-3-1-2021 3:23pm - Server set up and CSS sheet linked
-3-1-2021 3:38pm - created new.ejs and added search form
-3-1-2021 6:06pm - got book object to render to page with EJS
-3-1-2021 10:22pm - Made some edits with CSS
-3-2-2021 2:30pm - Start of Day 2
-3-2-2021 3:00pm - Set up database and connected to Heroku
-3-2-2021 4:24pm - Added Saved Books page
-3-2-2021 5:30pm - Added single book
-3-2-2021 8:15pm - Show single book after saving to database
-3-2-2021 9:45pm - Show single book after saving to database
-3-3-2021 2:30pm - Start of Day 3
-3-3-2021 4:30pm - added updated and delete capabilities
-3-3-2021 5:20pm - Fixed image and isbn issues
+* 3-1-2021 2:30pm - Start of Day 1
+* 3-1-2021 3:23pm - Server set up and CSS sheet linked
+* 3-1-2021 3:38pm - created new.ejs and added search form
+* 3-1-2021 6:06pm - got book object to render to page with EJS
+* 3-1-2021 10:22pm - Made some edits with CSS
+* 3-2-2021 2:30pm - Start of Day 2
+* 3-2-2021 3:00pm - Set up database and connected to Heroku
+* 3-2-2021 4:24pm - Added Saved Books page
+* 3-2-2021 5:30pm - Added single book
+* 3-2-2021 8:15pm - Show single book after saving to database
+* 3-2-2021 9:45pm - Show single book after saving to database
+* 3-3-2021 2:30pm - Start of Day 3
+* 3-3-2021 4:30pm - added updated and delete capabilities
+* 3-3-2021 5:20pm - Fixed image and isbn issues
 
 ## Time Estimate
 
