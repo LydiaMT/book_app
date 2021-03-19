@@ -1,34 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/styles/reset.css">
-  <link rel="stylesheet" href="/styles/base.css">
-  <link rel="stylesheet" href="/styles/layout.css">
-  <link rel="stylesheet" href="/styles/modules.css">
-  <title>Book app</title>
-</head>
+<%- include('./../../layout/head') %>
 <body>
-  <header>
-    <h1>Best Books!</h1>
-    <nav>
-      <h3><a href="/">HOME</a></h3>
-      <h3><a href="/searches/new">SEARCH</a></h3>
-    </nav>
-  </header>
+  <%- include('./../../layout/header') %>
   <main>
-
-        <form action="/books/<%= singleBook.id %>?_method=PUT" method="post">
-          <input type= "text" name="author" value="<%= singleBook.author %>">
-          <input type= "text" name="title" value="<%= singleBook.title %>">
-          <input type= "text" name="isbn" value="<%= singleBook.isbn %>">
-          <input type= "text" name="image" value="<%= singleBook.image  %>">
-          <input type= "text" name="description" value="<%= singleBook.description %>">
-          <input type="submit" value="save" name="update book">
+    <h2>Edit Book Details</h2>
+        <form class="book-grid" action="/books/<%= singleBook.id %>?_method=PUT" method="post">
+          <div class="edit-label">
+            <label for="author">Author</label>
+            <input type= "text" name="author" value="<%= singleBook.author %>">
+          </div>
+          <div class="edit-label">
+            <label for="title">Title</label>
+            <input type= "text" name="title" value="<%= singleBook.title %>">
+          </div>
+          <div class="edit-label">
+            <label for="title">ISBN</label>
+            <input type= "text" name="isbn" value="<%= singleBook.isbn %>">
+          </div>
+          <div class="edit-label">
+            <label for="title">Image URL</label>
+            <input type= "text" name="image_url" value="<%= singleBook.image_url  %>">
+          </div>
+          <div class="edit-label">
+            <label for="title">Book description</label>
+            <input type= "text" name="description" value="<%= singleBook.description %>">
+          </div>
+          <div class="edit-label">          
+            <input class="book-submit" type="submit" value="save" name="update book">
+          </div>
         </form>
 
-    </div>
   </main>
 </body>
 </html>

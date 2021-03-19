@@ -1,32 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./styles/reset.css">
-  <link rel="stylesheet" href="./styles/base.css">
-  <link rel="stylesheet" href="./styles/layout.css">
-  <link rel="stylesheet" href="./styles/modules.css">
-  <title>Book app</title>
-</head>
+<%- include('./../layout/head') %>
 <body>
-  <header>
-    <h1>Best Books!</h1>
-    <nav>
-      <h3><a href="/">HOME</a></h3>
-      <h3><a href="/searches/new">SEARCH</a></h3>
-    </nav>
-  </header>
+  <%- include('./../layout/header') %>
   <main>
     <div class="books-saved">
       <h2> <%= newBook.length %> Saved Books</h2>
       <% for (let i = 0; i < newBook.length; i++) { %>
-        <ul>
-          <li> <img src="<%= newBook[i].image_url %>" /> </li>
-          <li><%= newBook[i].title %></li>
-          <li><%= newBook[i].author %></li>
-        </ul>
-        <a href="/books/<%= newBook[i].id %>"><button>View Details</button></a>
+        <div class="book-grid">
+          <ul>
+            <li> <img class="book-img" src="<%= newBook[i].image_url %>" /> </li>
+            <li class="book-title"><%= newBook[i].title %></li>
+            <li class="book-author"><%= newBook[i].author %></li>
+          </ul>
+          <a href="/books/<%= newBook[i].id %>"><button class="book-submit">View Details</button></a>
+        </div>
       <% } %>
     </div>
   </main>

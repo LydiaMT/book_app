@@ -1,3 +1,4 @@
+/*-----Book Search Form-----*/
 div.form-div {
   display: flex;
   flex-direction: column;
@@ -21,8 +22,15 @@ fieldset {
 div.radio {
   height: 50px;
   width: 300px;
-  background-color: rgb(198, 198, 198);
+  background-color: rgb(110, 110, 110);
   margin-bottom: 10px;
+  color: rgb(224, 224, 224);
+  display: flex;
+  flex-direction: row;
+}
+
+.radio-label {
+  margin: 12px 2px 12px 5px;
 }
 
 .button {
@@ -34,37 +42,69 @@ div.radio {
   margin-bottom: 10px;
 }
 
-div.book-results {
+/*-----Book Grid All Pages-----*/
+.book-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 10px 0;
+  background-color: rgb(96, 119, 119);
+  border-radius: 10px;
+}
+
+.book-img, 
+.book-title, 
+.book-author,
+.book-description,
+.book-submit,
+.book-isbn {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 0 auto;
-  align-items: center;
-  justify-content: center;
+  margin-top: 10px;
 }
 
-img {
-  margin: 5px 0 5px 0;
-  align-items: center;
-  justify-content: center;
+.book-img {
+  width: 150px;
+  margin-top: 15px;
+  border-radius: 5px;
 }
-li.book-title {
-  color: white;
+
+.book-title {
+  color: rgb(224, 224, 224);
   font-size: 20px;
-  margin: 5px 0 5px 0;
-  align-items: center;
-  justify-content: center;
+  text-align: center;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
-li.book-author {
-  font-size: 20px;
-  margin: 5px 0 5px 0;
-  align-items: center;
-  justify-content: center;
+.book-author {
+  color: rgb(224, 224, 224);
+  font-size: 15px;
+  text-align: center;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
-li.book-description {
+.book-description {
   font-style: italic;
-  margin: 5px 0 5px 0;
-  align-items: center;
-  justify-content: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 5px;
+  background-color: rgb(224, 224, 224);
+  border-radius: 10px;
+}
+
+.book-submit {
+  margin-bottom: 15px;
+  justify-content: space-between;
+}
+
+.book-isbn {
+  color: rgb(224, 224, 224);
+}
+
+.edit-label {
+  margin: 5px 0 0 15px;
+  color:rgb(224, 224, 224)
 }

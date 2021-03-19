@@ -1,42 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/styles/reset.css">
-  <link rel="stylesheet" href="/styles/base.css">
-  <link rel="stylesheet" href="/styles/layout.css">
-  <link rel="stylesheet" href="/styles/modules.css">
-  <title>Book app</title>
-</head>
+<%- include('./../../layout/head') %>
 <body>
-  <header>
-    <h1>Best Books!</h1>
-    <nav>
-      <h3><a href="/">HOME</a></h3>
-      <h3><a href="/searches/new">SEARCH</a></h3>
-    </nav>
-  </header>
+  <%- include('./../../layout/header') %>
   <main>
     <div class="book-results">
       <h2>Search Results</h2>
       <% for (let i = 0; i < bookArray.length; i++) { %>
-        <ul>
-          <li> <img src="<%= bookArray[i].image %>" /> </li>
-          <li class="book-title"><%= bookArray[i].title %></li>
-          <li class="book-author"><%= bookArray[i].author %></li>
-          <li class="book-description"><%= bookArray[i].description %></li>
-        </ul>
-
-        <form action='/books' method='POST'>
-          <input type="hidden" name="author" value="<%= bookArray[i].author %>">
-          <input type="hidden" name="title" value="<%= bookArray[i].title %>">
-          <input type="hidden" name="isbn" value="<%= bookArray[i].isbn %>">
-          <input type="hidden" name="image" value="<%= bookArray[i].image %>">
-          <input type="hidden" name="description" value="<%= bookArray[i].description %>">
-          <input type="submit" value="save">
-        </form>
-
+        <div class="book-grid">
+          <ul>
+            <li> <img class="book-img" src="<%= bookArray[i].image %>" /> </li>
+            <li class="book-title"><%= bookArray[i].title %></li>
+            <li class="book-author"><%= bookArray[i].author %></li>
+            <% if (bookArray[i].description) { %>
+              <li class="book-description"><%= bookArray[i].description %></li>  
+            <%} %>    
+          </ul>
+          <form action='/books' method='POST'>
+            <input type="hidden" name="author" value="<%= bookArray[i].author %>">
+            <input type="hidden" name="title" value="<%= bookArray[i].title %>">
+            <input type="hidden" name="isbn" value="<%= bookArray[i].isbn %>">
+            <input type="hidden" name="image" value="<%= bookArray[i].image %>">
+            <input type="hidden" name="description" value="<%= bookArray[i].description %>">
+            <input class="book-submit" type="submit" value="save">
+          </form>
+        </div>
       <% } %>
     </div>
   </main>
