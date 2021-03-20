@@ -9,7 +9,7 @@
       <% for (let i = 0; i < bookArray.length; i++) { %>
         <div class="book-grid">
           <ul>
-            <li> <img class="book-img" src="<%= bookArray[i].image %>" /> </li>
+            <li> <img class="book-img" src="<%= bookArray[i].image_url %>" /> </li>
             <li class="book-title"><%= bookArray[i].title %></li>
             <li class="book-author"><%= bookArray[i].author %></li>
             <% if (bookArray[i].description) { %>
@@ -20,7 +20,7 @@
             <input type="hidden" name="author" value="<%= bookArray[i].author %>">
             <input type="hidden" name="title" value="<%= bookArray[i].title %>">
             <input type="hidden" name="isbn" value="<%= bookArray[i].isbn %>">
-            <input type="hidden" name="image" value="<%= bookArray[i].image %>">
+            <input type="hidden" name="image_url" value="<%= bookArray[i].image_url %>">
             <input type="hidden" name="description" value="<%= bookArray[i].description %>">
             <input class="book-submit" type="submit" value="save">
           </form>

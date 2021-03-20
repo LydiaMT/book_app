@@ -10,7 +10,9 @@
         <li><img src= "<%= singleBook.image_url %>" class="book-img" /></li>
         <li class="book-title"><%= singleBook.title %></li>
         <li class="book-author"><%= singleBook.author %></li>
-        <li class="book-description"><%= singleBook.description %></li>
+        <% if (singleBook.description) { %>
+          <li class="book-description"><%= singleBook.description %></li>  
+        <%} %> 
         <li class="book-isbn"><%= singleBook.isbn %></li>
       </ul>
       <div class="book-submit">

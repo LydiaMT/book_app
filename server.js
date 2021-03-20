@@ -42,6 +42,7 @@ app.get('/books/:id' , (request, response) => {
   client.query(sqlString, sqlArray)
     .then(result => {
       const singleBook = result.rows[0];
+      console.log(singleBook);
       const ejsObject = { singleBook };
       response.render('pages/books/details.ejs', ejsObject);
     })
@@ -52,7 +53,7 @@ app.get('/books/:id' , (request, response) => {
 });
 
 app.post('/books', (request, response) =>{
-  const sqlString = 'INSERT INTO books (author, title, isbn, image_url, description) VALUES($1, $2, $3, $4, $5) RETURNING id'; 
+  const sqlString = 'INSERT INTO books (author, title, isbn, image_url, description) VALUES($1, $2, $3, $4, $5) RETURNING id';
   //pg does not automatically return the ID, so you need to add 'RETURNING id' to your sql string
   const sqlArray = [request.body.author, request.body.title, request.body.isbn, request.body.image_url, request.body.description];
   client.query(sqlString, sqlArray)
@@ -128,13 +129,13 @@ app.post('/searches', (request, response) => {
 
 ////////////Objects//////////////////////
 function Books(bookData){
-  this.image = '';
+  this.image_url = '';
   this.title = '';
   this.author = '';
   this.description = '';
   this.isbn = '';
   if (bookData && bookData.volumeInfo){
-    this.image = bookData.volumeInfo.imageLinks ? bookData.volumeInfo.imageLinks.thumbnail : "https://i.imgur.com/J5LVHEL.jpg";
+    this.image_url = bookData.volumeInfo.imageLinks ? bookData.volumeInfo.imageLinks.thumbnail : "https://i.imgur.com/J5LVHEL.jpg";
     this.title = bookData.volumeInfo.title;
     this.author = bookData.volumeInfo.authors;
     this.description = bookData.volumeInfo.description;
