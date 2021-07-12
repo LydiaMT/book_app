@@ -1,7 +1,8 @@
 # Book App
 
-**Author**: Lydia Minehan-Tubic
-**Version**: 2.2.1
+## Author: Lydia Minehan-Tubic
+
+### [Deployed Site](https://book-app-lmt.herokuapp.com/)
 
 ## Overview
 
